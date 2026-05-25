@@ -54,7 +54,7 @@ src
 ### 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/your-username/your-repository.git
+git clone https://github.com/dunganh8a/SWP391_Resort_Spa
 ```
 
 ### 2️⃣ Install Dependencies
@@ -116,29 +116,6 @@ The frontend communicates with the backend using Axios:
 - Centralized Error Handling
 - Automatic Redirect on Unauthorized Requests
 
-Example:
-
-```javascript
-import axios from "axios";
-
-const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
-});
-
-api.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token");
-
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-
-  return config;
-});
-
-export default api;
-```
-
----
 
 ## 📱 Responsive Design
 
