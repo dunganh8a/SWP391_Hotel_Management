@@ -6,85 +6,20 @@ import {
   Star, DollarSign, LogOut, Sparkles, PlusCircle, Package, Lock, Unlock, KeyRound, Edit, ShieldCheck, Printer, Send, Image, Clock
 } from 'lucide-react';
 
-// ==========================================
-// MOCK DATA FOR RESORT SYSTEM (UPGRADED)
-// ==========================================
+import {
+  adminInitialAccounts as initialAccounts,
+  adminInitialRooms as initialRooms,
+  adminInitialServices as initialServices,
+  adminInitialPayments as initialPayments,
+  adminInitialFeedbacks as initialFeedbacks,
+  adminInitialComplaints as initialComplaints,
+  adminInitialInventory as initialInventory,
+  adminInitialShifts as initialShifts,
+  adminInitialSwapRequests as initialSwapRequests,
+  adminInitialWarnings as initialWarnings,
+  adminOccupancyChartData as occupancyChartData
+} from '../mockData';
 
-const initialAccounts = [
-  { id: 'ACC-001', name: 'Trần Thị Mai', email: 'maitran@gmail.com', phone: '0901234567', role: 'Customer', status: 'Active', dateCreated: '2026-01-10' },
-  { id: 'ACC-002', name: 'Lê Hoàng Nam', email: 'namle@gmail.com', phone: '0987654321', role: 'Customer', status: 'Active', dateCreated: '2026-02-15' },
-  { id: 'ACC-003', name: 'Lê Thị Thu', email: 'thule@nguson.com', phone: '0905556667', role: 'Staff', status: 'Active', dateCreated: '2026-03-20', department: 'Lễ tân' },
-  { id: 'ACC-004', name: 'Nguyễn Văn Huy', email: 'huynguyen@nguson.com', phone: '0903334445', role: 'Spa', status: 'Active', dateCreated: '2025-11-05', department: 'Trực Spa đá nóng' },
-  { id: 'ACC-005', name: 'Phạm Văn Long', email: 'longpham@nguson.com', phone: '0906667778', role: 'Physio', status: 'Active', dateCreated: '2026-04-12', department: 'Vật lý trị liệu' },
-  { id: 'ACC-006', name: 'Nguyễn Ngũ Sơn', email: 'admin@nguson.com', phone: '0999888999', role: 'Admin', status: 'Active', dateCreated: '2025-09-01', department: 'Ban Giám Đốc' },
-  { id: 'ACC-007', name: 'Trần Văn Bếp', email: 'chef@nguson.com', phone: '0908889999', role: 'Chef', status: 'Active', dateCreated: '2025-12-10', department: 'Nhà bếp resort' },
-  { id: 'ACC-008', name: 'Master Yoga Ananda', email: 'yoga@nguson.com', phone: '0907778888', role: 'Yoga', status: 'Active', dateCreated: '2026-01-05', department: 'Khu Yoga bờ biển' }
-];
-
-const initialRooms = [
-  { id: '101', type: 'VIP', status: 'occupied', floor: 1, price: '4,500,000đ', maxGuests: 4, photo: 'room_vip_view.jpg' },
-  { id: '102', type: 'Standard', status: 'vacant', floor: 1, price: '1,800,000đ', maxGuests: 2, photo: 'room_std_garden.jpg' },
-  { id: '103', type: 'Deluxe', status: 'maintenance', floor: 1, price: '2,900,000đ', maxGuests: 2, photo: 'room_deluxe_forest.jpg', issue: 'Hỏng vòi sen nhà tắm' },
-  { id: '104', type: 'Villa', status: 'cleaning', floor: 1, price: '5,800,000đ', maxGuests: 6, photo: 'room_villa_ocean.jpg' },
-  { id: '201', type: 'Standard', status: 'occupied', floor: 2, price: '1,800,000đ', maxGuests: 2, photo: 'room_std_garden.jpg' },
-  { id: '202', type: 'Deluxe', status: 'occupied', floor: 2, price: '2,900,000đ', maxGuests: 2, photo: 'room_deluxe_forest.jpg' },
-  { id: '203', type: 'Villa', status: 'vacant', floor: 2, price: '5,800,000đ', maxGuests: 6, photo: 'room_villa_ocean.jpg' },
-  { id: '204', type: 'VIP', status: 'cleaning', floor: 2, price: '4,500,000đ', maxGuests: 4, photo: 'room_vip_view.jpg' },
-  { id: '301', type: 'Villa', status: 'vacant', floor: 3, price: '5,800,000đ', maxGuests: 6, photo: 'room_villa_ocean.jpg' },
-  { id: '302', type: 'Villa', status: 'occupied', floor: 3, price: '5,800,000đ', maxGuests: 6, photo: 'room_villa_ocean.jpg' },
-  { id: '303', type: 'VIP', status: 'maintenance', floor: 3, price: '4,500,000đ', maxGuests: 4, photo: 'room_vip_view.jpg', issue: 'Điều hòa chảy nước' },
-  { id: '304', type: 'Standard', status: 'vacant', floor: 3, price: '1,800,000đ', maxGuests: 2, photo: 'room_std_garden.jpg' },
-];
-
-
-const initialServices = [
-  { id: 'SRV-01', name: 'Massage Trị Liệu Đá Núi Lửa', price: '1,200,000đ', type: 'Spa', enabled: true },
-  { id: 'SRV-02', name: 'Tắm Ngâm Lá Thảo Dược Dao Đỏ', price: '800,000đ', type: 'Spa', enabled: true },
-  { id: 'SRV-03', name: 'Súp sâm yến mạch thực dưỡng', price: '450,000đ', type: 'Restaurant', enabled: true },
-  { id: 'SRV-04', name: 'Giặt khô hấp đầm lụa tơ tằm', price: '180,000đ', type: 'Laundry', enabled: true },
-  { id: 'SRV-05', name: 'Xe đưa đón Sân Bay Đà Nẵng', price: '700,000đ', type: 'Transport', enabled: true },
-  { id: 'SRV-06', name: 'Tour ngắm hoàng hôn Sơn Trà', price: '1,500,000đ', type: 'Tour', enabled: true }
-];
-
-
-const initialPayments = [
-  { id: 'TXN-001', date: '2026-05-25', bookingId: 'BK-8902', amount: '4,500,000đ', servicesAmount: '1,200,000đ', total: '5,700,000đ', method: 'Chuyển khoản VNPAY', status: 'Paid' },
-  { id: 'TXN-002', date: '2026-05-25', bookingId: 'BK-8903', amount: '3,200,000đ', servicesAmount: '450,000đ', total: '3,650,000đ', method: 'Momo', status: 'Paid' },
-  { id: 'TXN-003', date: '2026-05-24', bookingId: 'BK-8906', amount: '6,400,000đ', servicesAmount: '320,000đ', total: '6,720,000đ', method: 'Thẻ tín dụng', status: 'Paid' },
-  { id: 'TXN-004', date: '2026-05-24', bookingId: 'BK-8905', amount: '2,900,000đ', servicesAmount: '0đ', total: '2,900,000đ', method: 'Tiền mặt', status: 'Unpaid' }
-];
-
-const initialFeedbacks = [
-  { id: 1, guest: 'Trần Thị Mai', room: '101', rating: 5, comment: 'Không gian tĩnh lặng, liệu trình ngâm chân lá thuốc Dao Đỏ giúp tôi ngủ rất ngon. Dịch vụ tuyệt vời!', reply: 'Cảm ơn chị Mai đã dành thời gian gửi phản hồi tốt cho resort!', time: '2 giờ trước' },
-  { id: 2, guest: 'Lê Hoàng Nam', room: '201', rating: 5, comment: 'Khu spa trị liệu rất đẳng cấp, chuyên viên chu đáo, nhiệt tình.', reply: '', time: '1 ngày trước' }
-];
-
-const initialComplaints = [
-  { id: 101, room: '103', guest: 'Khách ở phòng 103', content: 'Vòi sen tắm chảy nước rất yếu, cần sửa chữa thiết bị.', status: 'Open', time: '1 giờ trước', feedback: '' },
-  { id: 102, room: '303', guest: 'Lễ tân báo', content: 'Phòng 303 điều hòa chảy nước lạnh nhỏ giọt trên sàn gỗ.', status: 'Open', time: '4 giờ trước', feedback: '' }
-];
-
-const initialInventory = [
-  { id: 'INV-01', name: 'Tinh dầu Sả Chanh (Lít)', category: 'Spa trị liệu', stock: 12, minQty: 5, unit: 'Lít', status: 'Đầy đủ' },
-  { id: 'INV-02', name: 'Lá thuốc tắm Dao Đỏ tươi (Kg)', category: 'Spa trị liệu', stock: 45, minQty: 10, unit: 'Kg', status: 'Đầy đủ' },
-  { id: 'INV-03', name: 'Bộ drap trải giường Luxury (Bộ)', category: 'Buồng phòng', stock: 3, minQty: 15, unit: 'Bộ', status: 'Sắp hết' },
-  { id: 'INV-04', name: 'Bột trà xanh Matcha Nhật (Kg)', category: 'Nhà hàng thực dưỡng', stock: 0, minQty: 2, unit: 'Kg', status: 'Hết hàng' },
-];
-
-const initialShifts = [
-  { empName: 'Lê Thị Thu', day: 'Thứ Hai', date: '25/05', shiftName: 'Ca Sáng (06:00 - 14:00)', role: 'Lễ tân chính', clockIn: '05:58', clockOut: '14:02', status: 'Present' },
-  { empName: 'Nguyễn Văn Huy', day: 'Thứ Hai', date: '25/05', shiftName: 'Ca Chiều (14:00 - 22:00)', role: 'Trưởng bộ phận Spa', clockIn: '13:50', clockOut: '22:05', status: 'Present' },
-  { empName: 'Phạm Văn Long', day: 'Thứ Hai', date: '25/05', shiftName: 'Ca Đêm (22:00 - 06:00)', role: 'Kỹ thuật viên', clockIn: '--', clockOut: '--', status: 'Absent' }
-];
-
-const initialSwapRequests = [
-  { id: 201, date: '2026-05-26', shiftType: 'Ca Sáng (06:00 - 14:00)', applicant: 'Lê Thị Thu', targetEmployee: 'Nguyễn Văn Huy', reason: 'Giải quyết việc gia đình đột xuất', status: 'Pending' }
-];
-
-const initialWarnings = [
-  { id: 1, text: 'Phòng 303: Điều hòa chảy nước, cần kỹ thuật xử lý gấp.', type: 'maintenance', time: '10 phút trước' },
-  { id: 2, text: 'Phòng 104: Đang dọn vệ sinh kéo dài quá 2 tiếng.', type: 'cleaning', time: '45 phút trước' }
-];
 
 export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -136,16 +71,6 @@ export default function AdminDashboard() {
   const occupiedRoomsCount = rooms.filter(r => r.status === 'occupied').length;
   const occupancyRate = Math.round((occupiedRoomsCount / totalRoomsCount) * 100);
 
-  // SVG Chart Mock Data Points (Monday to Sunday)
-  const occupancyChartData = [
-    { day: 'T2', val: 55, revenue: 32 },
-    { day: 'T3', val: 60, revenue: 38 },
-    { day: 'T4', val: 50, revenue: 30 },
-    { day: 'T5', val: 68, revenue: 45 },
-    { day: 'T6', val: 85, revenue: 65 },
-    { day: 'T7', val: 95, revenue: 88 },
-    { day: 'CN', val: 90, revenue: 80 }
-  ];
 
   // ==========================================
   // 1. QUẢN LÝ TÀI KHOẢN (USER MANAGEMENT) HANDLERS

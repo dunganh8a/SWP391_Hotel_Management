@@ -5,53 +5,15 @@ import {
   ShieldAlert, Activity, FileText, CheckCircle2, Flame, Heart, AlertOctagon
 } from 'lucide-react';
 
-// ==========================================
-// MOCK DATA FOR KITCHEN & CULINARY SYSTEM
-// ==========================================
+import {
+  chefInitialAllergies as initialAllergies,
+  chefInitialFeedbacks as initialFeedbacks,
+  chefInitialDishes as initialDishes,
+  chefInitialOrders as initialOrders,
+  chefInitialIngredients as initialIngredients,
+  chefInitialRequests as initialRequests
+} from '../mockData';
 
-const initialAllergies = [
-  { id: 'ALG-001', guest: 'Trần Thị Mai', room: '101', allergies: ['Hải sản', 'Không ăn cay'], dietary: 'Halal', checkIn: '2026-05-25' },
-  { id: 'ALG-002', guest: 'Lê Hoàng Nam', room: '201', allergies: ['Đậu phộng'], dietary: 'Gluten-Free', checkIn: '2026-05-25' },
-  { id: 'ALG-003', guest: 'David Miller', room: '302', allergies: [], dietary: 'Vegan', checkIn: '2026-05-24' },
-  { id: 'ALG-004', guest: 'Phan Thanh Thủy', room: '104', allergies: ['Đậu phộng', 'Hải sản'], dietary: 'Vegetarian', checkIn: '2026-05-26' },
-  { id: 'ALG-005', guest: 'Nguyễn Bích Liên', room: '202', allergies: ['Không gluten'], dietary: 'Vegetarian', checkIn: '2026-05-25' }
-];
-
-const initialFeedbacks = [
-  { id: 1, guest: 'David Miller', room: '302', rating: 5, dish: 'Súp sâm yến mạch thực dưỡng', comment: 'Súp rất ngon, thanh đạm và tốt cho sức khỏe. Sẽ gọi lại!', time: '1 giờ trước', status: 'Positive' },
-  { id: 2, guest: 'Trần Thị Mai', room: '101', rating: 3, dish: 'Nấm nướng lá lốt', comment: 'Món ăn hơi nhạt, nước chấm đi kèm chưa được đậm đà lắm.', time: '3 giờ trước', status: 'Complaint' },
-  { id: 3, guest: 'Lê Hoàng Nam', room: '201', rating: 2, dish: 'Chè hạt sen nhãn nhục', comment: 'Tôi thấy hạt sen hơi cứng và ngọt gắt quá.', time: '1 ngày trước', status: 'Complaint' }
-];
-
-const initialDishes = [
-  { id: 'DSH-01', name: 'Súp sâm yến mạch thực dưỡng', price: '450,000đ', category: 'Khai vị', description: 'Yến mạch organic kết hợp nhân sâm Hàn Quốc, kỷ tử và táo đỏ giúp bổ khí huyết.', ingredients: 'Yến mạch (50g), Nhân sâm (10g), Táo đỏ (2 quả), Kỷ tử (5g)', allergens: [], isTodayMenu: true, period: 'Breakfast', soldOut: false, enabled: true },
-  { id: 'DSH-02', name: 'Mì căn xào sả ớt thực dưỡng', price: '280,000đ', category: 'Món chính', description: 'Mì căn dai ngon xào sả bằm và ớt hiểm, ăn kèm cơm gạo lứt.', ingredients: 'Mì căn chay (150g), Sả (2 củ), Ớt hiểm (1 quả), Hạt nêm chay', allergens: ['Cay'], isTodayMenu: true, period: 'Lunch', soldOut: false, enabled: true },
-  { id: 'DSH-03', name: 'Nấm nướng lá lốt cốt dừa', price: '320,000đ', category: 'Món chính', description: 'Nấm đùi gà cuộn lá lốt nướng than hoa, rưới sốt nước cốt dừa béo ngậy.', ingredients: 'Nấm đùi gà (100g), Lá lốt (10 lá), Nước cốt dừa (30ml), Đậu phộng rang', allergens: ['Đậu phộng'], isTodayMenu: true, period: 'Dinner', soldOut: false, enabled: true },
-  { id: 'DSH-04', name: 'Salad bơ hạt diêm mạch', price: '350,000đ', category: 'Món chính', description: 'Bơ sáp lát mỏng trộn hạt diêm mạch (quinoa), cà chua bi và nước sốt chanh leo chua thanh.', ingredients: 'Bơ sáp (0.5 quả), Hạt diêm mạch (30g), Cà chua bi (50g), Chanh leo', allergens: [], isTodayMenu: true, period: 'Lunch', soldOut: false, enabled: true },
-  { id: 'DSH-05', name: 'Gỏi cuốn chay sốt tương lạc', price: '190,000đ', category: 'Khai vị', description: 'Gỏi cuốn rau sống, đậu hũ chiên và bún tươi, chấm sốt tương đen pha bơ lạc.', ingredients: 'Đậu hũ (50g), Rau thơm, Bánh tráng, Tương đen, Bơ đậu phộng', allergens: ['Đậu phộng'], isTodayMenu: false, period: 'Lunch', soldOut: false, enabled: true },
-  { id: 'DSH-06', name: 'Lẩu nấm Ngũ Sơn chay', price: '850,000đ', category: 'Món chính', description: 'Nước dùng lẩu hầm từ củ quả ngọt lịm ăn kèm 5 loại nấm tươi quý hiếm.', ingredients: 'Nấm mối chay (50g), Nấm kim châm (50g), Nấm đùi gà (50g), Củ cải, Cà rốt', allergens: [], isTodayMenu: false, period: 'Dinner', soldOut: false, enabled: true },
-  { id: 'DSH-07', name: 'Tôm rim tỏi ớt (Món mặn)', price: '390,000đ', category: 'Món chính', description: 'Tôm sú biển tươi ngon rim tỏi ớt thơm lừng cay cay ngọt ngọt.', ingredients: 'Tôm sú (150g), Tỏi bằm, Ớt hiểm, Gia vị cốt biển', allergens: ['Hải sản', 'Cay'], isTodayMenu: true, period: 'Dinner', soldOut: false, enabled: true }
-];
-
-const initialOrders = [
-  { id: 'ORD-5501', guestName: 'Trần Thị Mai', room: '101', origin: 'Room Service', items: [{ name: 'Tôm rim tỏi ớt (Món mặn)', qty: 1 }, { name: 'Súp sâm yến mạch thực dưỡng', qty: 1 }], note: 'Làm thật ít cay giúp tôi nhé!', status: 'Pending', time: '10 phút trước' },
-  { id: 'ORD-5502', guestName: 'David Miller', room: '302', origin: 'Restaurant', items: [{ name: 'Salad bơ hạt diêm mạch', qty: 1 }, { name: 'Mì căn xào sả ớt thực dưỡng', qty: 1 }], note: 'Không lấy hành lá', status: 'Cooking', time: '15 phút trước' },
-  { id: 'ORD-5503', guestName: 'Lê Hoàng Nam', room: '201', origin: 'Room Service', items: [{ name: 'Nấm nướng lá lốt cốt dừa', qty: 1 }], note: 'Mang kèm muỗng nĩa', status: 'Completed', time: '1 giờ trước' }
-];
-
-const initialIngredients = [
-  { id: 'ING-01', name: 'Đậu hũ non organic (Khay)', category: 'Đồ mát', stock: 15, minQty: 5, unit: 'Khay', status: 'Đầy đủ' },
-  { id: 'ING-02', name: 'Nấm đùi gà tươi (Kg)', category: 'Rau củ', stock: 8, minQty: 10, unit: 'Kg', status: 'Sắp hết' },
-  { id: 'ING-03', name: 'Tôm sú biển tươi (Kg)', category: 'Hải sản', stock: 12, minQty: 4, unit: 'Kg', status: 'Đầy đủ' },
-  { id: 'ING-04', name: 'Nhân sâm Hàn Quốc tươi (Củ)', category: 'Dược liệu', stock: 3, minQty: 5, unit: 'Củ', status: 'Sắp hết' },
-  { id: 'ING-05', name: 'Bơ đậu phộng sấy (Hũ)', category: 'Gia vị', stock: 0, minQty: 3, unit: 'Hũ', status: 'Hết hàng' },
-  { id: 'ING-06', name: 'Gạo lứt đỏ nương (Kg)', category: 'Khô', stock: 45, minQty: 15, unit: 'Kg', status: 'Đầy đủ' }
-];
-
-const initialRequests = [
-  { id: 'REQ-01', name: 'Bơ đậu phộng sấy', qty: 10, unit: 'Hũ', date: '2026-05-25', status: 'Chờ duyệt' },
-  { id: 'REQ-02', name: 'Nấm đùi gà tươi', qty: 15, unit: 'Kg', date: '2026-05-26', status: 'Chờ duyệt' }
-];
 
 export default function ChefDashboard() {
   const [activeTab, setActiveTab] = useState('overview');

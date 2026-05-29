@@ -1,42 +1,10 @@
 import React, { useState } from 'react';
 import { BookOpen, Calendar, User, ArrowRight, Search, Tag } from 'lucide-react';
 
-const blogPosts = [
-  {
-    title: '5 Bài Tập Yoga Đơn Giản Giúp Giảm Đau Cột Sống Cho Dân Văn Phòng',
-    excerpt: 'Đau mỏi vai gáy và cột sống là căn bệnh kinh niên của dân văn phòng. Hãy cùng Ngũ Sơn tìm hiểu 5 tư thế yoga nhẹ nhàng dễ thực hành ngay tại bàn làm việc.',
-    author: 'Master Kim Nguyễn',
-    date: '20-05-2026',
-    category: 'Yoga & Thiền',
-    image: '/service_yoga.png',
-  },
-  {
-    title: 'Ẩm Thực Thực Dưỡng: Ăn Thế Nào Để Cân Bằng Thân - Tâm?',
-    excerpt: 'Quy tắc ăn uống thực dưỡng không chỉ giúp thải độc mà còn cân bằng năng lượng âm dương trong cơ thể. Khám phá các nguyên liệu tự nhiên đem lại năng lượng xanh.',
-    author: 'Chef Lê Vy',
-    date: '15-05-2026',
-    category: 'Ẩm Thực',
-    image: '/service_dining.png',
-  },
-  {
-    title: 'Liệu Pháp Xông Hơi Thuốc Nam: Thải Độc Và Tái Tạo Làn Da Khỏe Mạnh',
-    excerpt: 'Xông hơi bằng các loại lá thuốc nam quý hiếm thu hái tại vườn thảo dược Ngũ Sơn giúp thông thoáng lỗ chân lông, giải cảm và mang lại tinh thần sảng khoái.',
-    author: 'Dược sĩ Thu Trang',
-    date: '10-05-2026',
-    category: 'Spa Trị Liệu',
-    image: '/service_spa.png',
-  },
-  {
-    title: 'Vật Lý Trị Liệu Cho Người Thoát Vị Đĩa Đệm: Những Sai Lầm Cần Tránh',
-    excerpt: 'Kéo giãn cột sống và nắn chỉnh cơ học cần được thực hiện đúng cách dưới sự giám sát chuyên môn. Tìm hiểu những sai lầm phổ biến khi tự tập luyện phục hồi.',
-    author: 'Bác sĩ Minh Hải',
-    date: '05-05-2026',
-    category: 'Vật Lý Trị Liệu',
-    image: '/service_therapy.png',
-  },
-];
-
-const categories = ['Tất cả', 'Yoga & Thiền', 'Ẩm Thực', 'Spa Trị Liệu', 'Vật Lý Trị Liệu', 'Lối sống xanh'];
+import {
+  blogPostsList as blogPosts,
+  blogCategoriesList as categories
+} from '../mockData';
 
 export default function Blog() {
   const [selectedCategory, setSelectedCategory] = useState('Tất cả');

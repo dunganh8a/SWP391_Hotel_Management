@@ -1,20 +1,8 @@
 import React from 'react';
 import { ShieldAlert, Stethoscope, Heart, CheckSquare, Calendar } from 'lucide-react';
 
-const treatments = [
-  {
-    name: 'Liệu Pháp Nắn Chỉnh Cột Sống & Đĩa Đệm',
-    description: 'Áp dụng các kỹ thuật nắn chỉnh cơ xương cột sống kết hợp kéo giãn cơ học tự động. Giúp làm giảm chèn ép rễ thần kinh, tăng khe khớp, rất hiệu quả cho bệnh nhân đau thần kinh tọa, thoát vị đĩa đệm nhẹ hoặc đau mỏi thắt lưng cấp tính.',
-    suitability: 'Người ngồi nhiều, người bị thoát vị đĩa đệm nhẹ, đau mỏi thắt lưng mãn tính.',
-    benefits: ['Giải phóng chèn ép rễ thần kinh', 'Kéo giãn cột sống an toàn, êm ái', 'Tăng tuần hoàn dinh dưỡng cho đĩa đệm']
-  },
-  {
-    name: 'Giải Cơ Chuyên Sâu Bằng Nhiệt Thảo Dược',
-    description: 'Kết hợp xoa bóp trị liệu Đông y và đắp thuốc thảo dược nóng lên các vùng cơ bị co thắt, xơ cứng. Nhiệt lượng từ thảo dược thẩm thấu sâu qua da giúp đánh tan các điểm đau xơ cứng cơ vai gáy, bả vai.',
-    suitability: 'Người bị co thắt cơ vai gáy do stress, vận động viên bị căng cơ.',
-    benefits: ['Đánh tan xơ cứng cơ vai gáy', 'Tăng lưu lượng tuần hoàn cơ khớp', 'Hiệu quả thư giãn sâu ngay lập tức']
-  }
-];
+import { therapyTreatments as treatments } from '../mockData';
+
 
 export default function Therapy() {
   return (

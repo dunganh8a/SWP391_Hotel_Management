@@ -1,29 +1,8 @@
 import React from 'react';
 import { Tag, Calendar, ShieldCheck, ArrowRight } from 'lucide-react';
 
-const promos = [
-  {
-    title: 'Gói Trị Liệu Cột Sống Chuyên Sâu 3N2Đ',
-    description: 'Liệu trình toàn diện gồm 3 ngày 2 đêm phòng nghỉ hướng suối, bác sĩ CKI Hải khám phác đồ riêng biệt, 02 buổi kéo giãn vật lý trị liệu cột sống, 02 buổi bấm huyệt giải cơ và miễn phí các buổi tập yoga thiền định đón bình minh.',
-    period: 'Áp dụng đến 31-08-2026',
-    discount: 'Ưu đãi trọn gói đặc biệt',
-    code: 'SPINERECOVERY'
-  },
-  {
-    title: 'Combo Cuối Tuần Zen Retreat 2N1Đ',
-    description: 'Trọn gói nghỉ dưỡng cuối tuần nạp năng lượng gồm 1 đêm phòng nghỉ, 2 bữa ăn thực dưỡng cân bằng ngũ vị tại nhà hàng, 1 suất massage đá nóng thảo dược 90 phút tại spa trị liệu.',
-    period: 'Áp dụng Thứ 6 - Chủ Nhật hàng tuần',
-    discount: 'Tiết kiệm 15% so với mua lẻ',
-    code: 'WEEKENDZEN'
-  },
-  {
-    title: 'Ưu Đãi Đặc Quyền Gia Đình Chữa Lành',
-    description: 'Khi đặt từ 2 đêm Bungalow liên tiếp cho gia đình: Tặng kèm lớp học nấu món chay thực dưỡng cùng Chef Lê Vy, tặng liệu trình tắm ngâm lá Dao Đỏ cho bố mẹ và 1 suất workshop vẽ tranh cho bé.',
-    period: 'Áp dụng cho gia đình từ 3 người',
-    discount: 'Miễn phí các hoạt động gia đình',
-    code: 'FAMILYLOVE'
-  }
-];
+import { promotionsPromos as promos } from '../mockData';
+
 
 export default function Promotions() {
   return (

@@ -1,29 +1,8 @@
 import React from 'react';
 import { Heart, Sparkles, Clock, CheckCircle } from 'lucide-react';
 
-const therapies = [
-  {
-    name: 'Massage Trị Liệu Đá Núi Lửa',
-    description: 'Sử dụng những viên đá bazan tự nhiên được hấp nóng trong tinh dầu thảo dược để massage sâu vào mô cơ. Phục hồi hoàn toàn cơ bắp bị căng cứng, kích thích tuần hoàn máu và đem lại giấc ngủ sâu.',
-    duration: '90 Phút / 120 Phút',
-    benefits: ['Giảm căng thẳng cơ bắp sâu', 'Cải thiện tuần hoàn máu', 'Đào thải độc tố tích tụ', 'Hỗ trợ ngủ sâu ngon giấc'],
-    image: '/service_spa.png'
-  },
-  {
-    name: 'Tắm Ngâm Lá Thảo Dược Dao Đỏ',
-    description: 'Bản sắc chăm sóc sức khỏe độc đáo sử dụng hơn 30 loại lá thuốc tươi hái trực tiếp từ độ cao 1.500m. Nước ngâm nóng thảo dược giúp thư giãn mạch máu, giảm đau mỏi xương khớp và nuôi dưỡng làn da căng mượt.',
-    duration: '45 Phút / 60 Phút',
-    benefits: ['Làm ấm sâu cơ thể', 'Hỗ trợ giảm đau khớp', 'Làm mịn và sáng da tự nhiên', 'Xua tan mỏi mệt tức thì'],
-    image: '/room_luxury.png'
-  },
-  {
-    name: 'Liệu Trình Trẻ Hóa Da Tự Nhiên',
-    description: 'Chăm sóc da mặt chuyên sâu kết hợp thảo mộc organic tươi (nghệ tây, mật ong rừng Ngũ Sơn, cám gạo sữa) và phương pháp massage bấm huyệt Kobi-Do giúp lưu thông bạch huyết, săn chắc cơ mặt.',
-    duration: '75 Phút',
-    benefits: ['Trẻ hóa cơ mặt tự nhiên', 'Cấp ẩm sâu từ thiên nhiên', 'Làm sáng tông da xỉn màu', 'Massage đầu cổ vai gáy thư giãn'],
-    image: '/service_dining.png'
-  }
-];
+import { spaTherapies as therapies } from '../mockData';
+
 
 export default function Spa() {
   return (

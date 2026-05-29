@@ -5,84 +5,18 @@ import {
   Activity, AlertTriangle, Sparkles, Sliders, Clipboard, RefreshCw, BarChart2
 } from 'lucide-react';
 
-// ==========================================
-// MOCK DATA FOR SPECIALIST DEPARTMENTS
-// ==========================================
+import {
+  specialistInitialSpaAppointments as initialSpaAppointments,
+  specialistInitialSpaRooms as initialSpaRooms,
+  specialistInitialSpaInventory as initialSpaInventory,
+  specialistInitialYogaClasses as initialYogaClasses,
+  specialistInitialYogaEquipment as initialYogaEquipment,
+  specialistInitialAttendance as initialAttendance,
+  specialistInitialPhysioAppointments as initialPhysioAppointments,
+  specialistInitialPatientRecords as initialPatientRecords,
+  specialistInitialPhysioEquipment as initialPhysioEquipment
+} from '../mockData';
 
-// 1. SPA DEPARTMENT DATA
-const initialSpaAppointments = [
-  { id: 'SPA-8801', guest: 'Trần Thị Mai', room: '101', service: 'Massage Trị Liệu Đá Núi Lửa', therapist: 'Nguyễn Thu Thảo', time: '09:00 - 10:30', status: 'Pending', note: 'Khách thích lực vừa phải, tập trung vai gáy' },
-  { id: 'SPA-8802', guest: 'David Miller', room: '302', service: 'Tắm Ngâm Lá Thảo Dược Dao Đỏ', therapist: 'Lê Văn Tùng', time: '11:00 - 12:00', status: 'In Progress', note: 'Không dùng tinh dầu sả, dùng tinh dầu oải hương' },
-  { id: 'SPA-8803', guest: 'Phan Thanh Thủy', room: '104', service: 'Massage Trị Liệu Đá Núi Lửa', therapist: 'Nguyễn Thu Thảo', time: '14:00 - 15:30', status: 'Completed', note: 'Khách dị ứng nhẹ với phấn hoa' }
-];
-
-const initialSpaRooms = [
-  { name: 'Phòng VIP Hoa Sen (Sen Room)', type: 'VIP Trị liệu', status: 'Occupied', currentGuest: 'David Miller' },
-  { name: 'Phòng Thảo Dược Đôi (Twin Herbal Room)', type: 'Ngâm tắm thảo dược', status: 'Vacant', currentGuest: '' },
-  { name: 'Phòng Trị Liệu 1 (Therapy Room 1)', type: 'Massage đá nóng', status: 'Cleaning', currentGuest: '' },
-  { name: 'Phòng Trị Liệu 2 (Therapy Room 2)', type: 'Massage bấm huyệt', status: 'Vacant', currentGuest: '' }
-];
-
-const initialSpaInventory = [
-  { id: 'SPI-01', name: 'Tinh dầu Oải Hương (Lavender Oil)', stock: 5, unit: 'Chai 500ml', minQty: 3, status: 'Đầy đủ' },
-  { id: 'SPI-02', name: 'Lá tắm thảo dược Dao Đỏ khô', stock: 12, unit: 'Gói 1kg', minQty: 15, status: 'Sắp hết' },
-  { id: 'SPI-03', name: 'Đá nóng bazan trị liệu (Bộ)', stock: 8, unit: 'Bộ 16 viên', minQty: 5, status: 'Đầy đủ' },
-  { id: 'SPI-04', name: 'Khăn trải giường thảo dược', stock: 2, unit: 'Bộ drap', minQty: 10, status: 'Sắp hết' }
-];
-
-// 2. YOGA DEPARTMENT DATA
-const initialYogaClasses = [
-  { id: 'YOG-101', name: 'Lớp Thiền Định Phục Hồi (Meditation)', instructor: 'Yogi Master Ananda', time: '06:00 - 07:15', location: 'Sàn gỗ ngắm hoàng hôn sát biển', registeredCount: 8, registeredGuests: ['David Miller', 'Trần Thị Mai', 'Nguyễn Bích Liên', 'Lê Hoàng Nam', 'Phạm Minh Tuấn', 'Vũ Đức Thành', 'Trần Văn Tấn', 'Lê Thị Thu'] },
-  { id: 'YOG-102', name: 'Hatha Yoga Cơ Bản', instructor: 'Yogi Master Ananda', time: '08:30 - 09:45', location: 'Sân cỏ hướng vườn thiền', registeredCount: 4, registeredGuests: ['Nguyễn Bích Liên', 'Lê Hoàng Nam', 'Phan Thanh Thủy', 'Đỗ Quốc Khánh'] },
-  { id: 'YOG-103', name: 'Yoga Bay Trị Liệu Cột Sống (Aerial Yoga)', instructor: 'Coach Thu Hằng', time: '16:30 - 17:45', location: 'Phòng Yoga Vòm Kính', registeredCount: 3, registeredGuests: ['Trần Thị Mai', 'Phan Thanh Thủy', 'Lê Hoàng Nam'] }
-];
-
-const initialYogaEquipment = [
-  { name: 'Thảm tập Yoga Cao Su Tự Nhiên', total: 30, clean: 25, laundry: 5, bad: 0 },
-  { name: 'Gạch xốp trợ thế Yoga (Blocks)', total: 40, clean: 40, laundry: 0, bad: 0 },
-  { name: 'Dây đai kéo giãn Yoga (Straps)', total: 20, clean: 18, laundry: 2, bad: 0 },
-  { name: 'Võng tập Yoga Bay (Hammocks)', total: 15, clean: 15, laundry: 0, bad: 0 }
-];
-
-const initialAttendance = {
-  'YOG-101': { 'David Miller': true, 'Trần Thị Mai': true, 'Nguyễn Bích Liên': false, 'Lê Hoàng Nam': true },
-  'YOG-102': { 'Nguyễn Bích Liên': true, 'Lê Hoàng Nam': false, 'Phan Thanh Thủy': true },
-  'YOG-103': { 'Trần Thị Mai': false, 'Phan Thanh Thủy': false }
-};
-
-// 3. PHYSIOTHERAPY DEPARTMENT DATA
-const initialPhysioAppointments = [
-  { id: 'PHY-001', guest: 'Lê Hoàng Nam', room: '201', diagnosis: 'Đau cột sống thắt lưng cấp L4-L5', service: 'Kéo giãn cột sống máy + Siêu âm', therapist: 'Dr. Nguyễn Quốc Hải', time: '08:30 - 09:30', status: 'Pending' },
-  { id: 'PHY-002', guest: 'Phạm Minh Tuấn', room: '102', diagnosis: 'Hội chứng thoái hóa khớp gối giai đoạn 2', service: 'Laser trị liệu + Sóng ngắn', therapist: 'Dr. Nguyễn Quốc Hải', time: '10:00 - 11:00', status: 'In Progress' },
-  { id: 'PHY-003', guest: 'Vũ Đức Thành', room: '302', diagnosis: 'Cứng khớp vai sau chấn thương thể thao', service: 'Vận động trị liệu khớp vai', therapist: 'Therapist Minh Đức', time: '15:00 - 16:00', status: 'Completed' }
-];
-
-const initialPatientRecords = [
-  { 
-    guest: 'Lê Hoàng Nam', 
-    room: '201', 
-    history: [
-      { date: '2026-05-23', symptoms: 'Đau thắt lưng lan mông trái, VAS 7/10', therapy: 'Chườm nóng + Điện xung + Kéo dãn lực 20kg', progress: 'Sau kéo dãn giảm đau nhẹ, VAS còn 6/10' },
-      { date: '2026-05-24', symptoms: 'Đau âm ỉ thắt lưng, co thắt cơ dựng sống hai bên', therapy: 'Siêu âm trị liệu tần số 1MHz + Kéo dãn lực 22kg', progress: 'Cơ lưng mềm hơn, cúi người đỡ buốt, VAS 5/10' }
-    ],
-    recommendations: 'Tránh ngồi quá 45 phút, không bê vác vật nặng. Tập bài tập phục hồi cơ lõi Core Exercise ngày 2 lần.'
-  },
-  { 
-    guest: 'Phạm Minh Tuấn', 
-    room: '102', 
-    history: [
-      { date: '2026-05-24', symptoms: 'Đau mặt trước khớp gối phải khi leo cầu thang, sưng nề nhẹ', therapy: 'Laser cường độ cao khớp gối + Chườm lạnh', progress: 'Đỡ sưng khớp, cảm giác căng tức đầu gối giảm' }
-    ],
-    recommendations: 'Hạn chế đi cầu thang bộ. Đeo băng thun hỗ trợ khớp gối khi đi bộ.'
-  }
-];
-
-const initialPhysioEquipment = [
-  { name: 'Máy Kéo Giãn Cột Sống Tự Động', code: 'EQ-PHY-01', status: 'Available', usageHours: 120 },
-  { name: 'Thiết Bị Laser Trị Liệu Cường Độ Cao', code: 'EQ-PHY-02', status: 'Available', usageHours: 85 },
-  { name: 'Máy Siêu Âm Trị Liệu Đa Tần', code: 'EQ-PHY-03', status: 'Under Maintenance', usageHours: 240 },
-  { name: 'Hệ Thống Thử Sức Cơ Vận Động', code: 'EQ-PHY-04', status: 'Occupied', usageHours: 110 }
-];
 
 export default function SpecialistDashboard() {
   // Active Role switcher: 'spa' | 'yoga' | 'physio'

@@ -1,29 +1,8 @@
 import React from 'react';
 import { Calendar, Heart, Award, ArrowRight, UserCheck } from 'lucide-react';
 
-const programs = [
-  {
-    title: 'Yoga Hatha Đón Bình Minh',
-    description: 'Bài tập khởi động toàn diện vào lúc 5:30 sáng trên sàn gỗ thông mở hướng ra thung lũng. Giúp kéo giãn cơ xương khớp, thúc đẩy tuần hoàn máu và đánh thức cơ thể một cách nhẹ nhàng nhất đón ngày mới.',
-    level: 'Mọi cấp độ (Cơ bản đến Trung cấp)',
-    duration: '60 Phút',
-    coach: 'Master Kim Nguyễn (15 năm kinh nghiệm)'
-  },
-  {
-    title: 'Thiền Thở & Tĩnh Tâm Sâu',
-    description: 'Các bài thực hành kiểm soát hơi thở Pranayama kết hợp thiền âm thanh chuông xoay Tây Tạng. Hỗ trợ xoa dịu lo âu, cải thiện chứng mất ngủ và giảm căng thẳng hệ thần kinh trung ương nhanh chóng.',
-    level: 'Mọi cấp độ',
-    duration: '45 Phút',
-    coach: 'Thiền sư Minh Đạo'
-  },
-  {
-    title: 'Chánh Niệm Đi Bộ (Forest Forest Walk)',
-    description: 'Liệu trình thiền hành đi chân trần trên thảm cỏ xuyên qua rừng thông nguyên sinh. Học cách giữ nhịp thở đồng bộ với bước chân, cảm nhận trọn vẹn xúc giác với đất mẹ giúp sạc lại năng lượng sinh học tự nhiên.',
-    level: 'Mọi cấp độ',
-    duration: '90 Phút',
-    coach: 'Hướng dẫn viên Dân Tộc Địa Phương'
-  }
-];
+import { yogaPrograms as programs } from '../mockData';
+
 
 export default function Yoga() {
   return (

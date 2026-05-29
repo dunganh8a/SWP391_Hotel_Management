@@ -5,62 +5,16 @@ import {
   Plus, Printer, RefreshCw, Send, CheckCircle2, UserCheck, Menu
 } from 'lucide-react';
 
-// ==========================================
-// MOCK INITIAL DATA FOR STAFF OPERATIONAL SYSTEM
-// ==========================================
+import {
+  staffInitialRooms as initialRooms,
+  staffInitialBookings as initialBookings,
+  staffInitialServices as initialServices,
+  staffInitialComplaints as initialComplaints,
+  staffInitialPayments as initialPayments,
+  staffInitialShifts as initialShifts,
+  staffInitialChatMessages
+} from '../mockData';
 
-const initialRooms = [
-  { id: '101', type: 'Luxury Suite', status: 'occupied', floor: 1, price: '4,500,000đ', guestName: 'Trần Thị Mai' },
-  { id: '102', type: 'Forest Bungalow', status: 'vacant', floor: 1, price: '3,200,000đ', guestName: '' },
-  { id: '103', type: 'Garden Villa', status: 'maintenance', floor: 1, price: '5,800,000đ', guestName: '', issue: 'Hỏng vòi sen nhà tắm' },
-  { id: '104', type: 'Luxury Suite', status: 'cleaning', floor: 1, price: '4,500,000đ', guestName: '' },
-  { id: '201', type: 'Forest Bungalow', status: 'occupied', floor: 2, price: '3,200,000đ', guestName: 'Lê Hoàng Nam' },
-  { id: '202', type: 'Forest Bungalow', status: 'occupied', floor: 2, price: '3,200,000đ', guestName: 'Nguyễn Văn Hùng' },
-  { id: '203', type: 'Garden Villa', status: 'vacant', floor: 2, price: '5,800,000đ', guestName: '' },
-  { id: '204', type: 'Luxury Suite', status: 'cleaning', floor: 2, price: '4,500,000đ', guestName: '' },
-  { id: '301', type: 'Garden Villa', status: 'vacant', floor: 3, price: '5,800,000đ', guestName: '' },
-  { id: '302', type: 'Garden Villa', status: 'occupied', floor: 3, price: '5,800,000đ', guestName: 'Vũ Đức Thành' },
-  { id: '303', type: 'Luxury Suite', status: 'maintenance', floor: 3, price: '4,500,000đ', guestName: '', issue: 'Điều hòa chảy nước' },
-  { id: '304', type: 'Forest Bungalow', status: 'vacant', floor: 3, price: '3,200,000đ', guestName: '' },
-];
-
-const initialBookings = [
-  { id: 'BK-8902', guest: 'Trần Thị Mai', phone: '0901234567', room: '101', checkIn: '2026-05-25', status: 'Checked In', amount: '4,500,000đ', specialNotes: 'Phòng hướng biển, Check-in muộn' },
-  { id: 'BK-8903', guest: 'Lê Hoàng Nam', phone: '0987654321', room: '201', checkIn: '2026-05-25', status: 'Checked In', amount: '3,200,000đ', specialNotes: 'Yêu cầu thêm giường phụ (Extra bed)' },
-  { id: 'BK-8904', guest: 'Phạm Minh Tuấn', phone: '0912345678', room: 'Chưa gán', checkIn: '2026-05-26', status: 'Confirmed', amount: '5,800,000đ', specialNotes: 'Khách VIP, thích yên tĩnh' },
-  { id: 'BK-8905', guest: 'Nguyễn Thanh Hương', phone: '0934567890', room: '203', checkIn: '2026-05-27', status: 'Pending', amount: '2,900,000đ', specialNotes: 'Cần xe đón tại sân bay lúc 14:00' },
-  { id: 'BK-8906', guest: 'Vũ Đức Thành', phone: '0978901234', room: '302', checkIn: '2026-05-24', status: 'Checked In', amount: '6,400,000đ', specialNotes: 'Late check-out ngày 27/5' },
-];
-
-const initialServices = [
-  { id: 'SO-101', room: '101', category: 'Spa booking', detail: 'Massage Đá nóng thảo dược (90 phút)', price: '1,200,000đ', status: 'In Progress', time: '14:30' },
-  { id: 'SO-102', room: '201', category: 'Restaurant order', detail: 'Súp sâm yến mạch thực dưỡng & trà sen', price: '450,000đ', status: 'Pending', time: '17:45' },
-  { id: 'SO-103', room: '302', category: 'Room service', detail: 'Ăn tối tại phòng: Cơm lứt muối mè & Nước ép hữu cơ', price: '320,000đ', status: 'Completed', time: '12:00' },
-  { id: 'SO-104', room: '101', category: 'Laundry', detail: 'Giặt khô đầm lụa tơ tằm', price: '180,000đ', status: 'Pending', time: '09:15' },
-  { id: 'SO-105', room: '201', category: 'Tour booking', detail: 'Tour ngắm hoàng hôn bán đảo Sơn Trà', price: '1,500,000đ', status: 'Completed', time: 'Thứ Hai' }
-];
-
-const initialComplaints = [
-  { id: 1, guest: 'Nguyễn Văn Hùng', room: '202', content: 'Wifi trong góc phòng hơi yếu, thỉnh thoảng mất kết nối.', status: 'Open', time: '1 giờ trước', feedback: '' },
-  { id: 2, guest: 'Trần Thị Mai', room: '101', content: 'Gối hơi cao, cần đổi 2 gối lông vũ mềm hơn.', status: 'Resolved', time: '3 giờ trước', feedback: 'Đã giao gối mới lúc 15:00' },
-  { id: 3, guest: 'Vũ Đức Thành', room: '302', content: 'Có tiếng ồn nhỏ phát ra từ dàn lạnh điều hòa lúc đêm muộn.', status: 'Open', time: '5 giờ trước', feedback: '' }
-];
-
-const initialPayments = [
-  { id: 'INV-8801', bookingId: 'BK-8902', guest: 'Trần Thị Mai', room: '101', amount: '4,500,000đ', servicesAmount: '1,200,000đ', total: '5,700,000đ', method: 'Chuyển khoản VNPAY', status: 'Paid' },
-  { id: 'INV-8802', bookingId: 'BK-8903', guest: 'Lê Hoàng Nam', room: '201', amount: '3,200,000đ', servicesAmount: '450,000đ', total: '3,650,000đ', method: 'Tiền mặt', status: 'Unpaid' },
-  { id: 'INV-8803', bookingId: 'BK-8906', guest: 'Vũ Đức Thành', room: '302', amount: '6,400,000đ', servicesAmount: '320,000đ', total: '6,720,000đ', method: 'Thẻ tín dụng', status: 'Paid' }
-];
-
-const initialShifts = [
-  { day: 'Thứ Hai', date: '25/05', shiftName: 'Ca Sáng (06:00 - 14:00)', role: 'Lễ tân chính', status: 'Completed' },
-  { day: 'Thứ Ba', date: '26/05', shiftName: 'Ca Sáng (06:00 - 14:00)', role: 'Lễ tân chính', status: 'Upcoming' },
-  { day: 'Thứ Tư', date: '27/05', shiftName: 'Ca Chiều (14:00 - 22:00)', role: 'Lễ tân chính', status: 'Upcoming' },
-  { day: 'Thứ Năm', date: '28/05', shiftName: 'Ca Chiều (14:00 - 22:00)', role: 'Hỗ trợ đón tiếp', status: 'Upcoming' },
-  { day: 'Thứ Sáu', date: '29/05', shiftName: 'Nghỉ tuần', role: '-', status: 'Day Off' },
-  { day: 'Thứ Bảy', date: '30/05', shiftName: 'Ca Sáng (06:00 - 14:00)', role: 'Lễ tân chính', status: 'Upcoming' },
-  { day: 'Chủ Nhật', date: '31/05', shiftName: 'Ca Sáng (06:00 - 14:00)', role: 'Trực quầy VIP', status: 'Upcoming' }
-];
 
 export default function StaffDashboard() {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -111,11 +65,7 @@ export default function StaffDashboard() {
   const occupiedRoomsCount = rooms.filter(r => r.status === 'occupied').length;
 
   // Mock chat system
-  const [chatMessages, setChatMessages] = useState([
-    { sender: 'Guest (Phòng 101)', text: 'Cho mình xin thêm 2 chai nước suối nhé lễ tân.', time: '10:15' },
-    { sender: 'Lễ tân (Bạn)', text: 'Dạ vâng ạ, bộ phận buồng phòng đang mang nước lên phòng 101 ngay lập tức ạ.', time: '10:17' },
-    { sender: 'Guest (Phòng 101)', text: 'Cảm ơn bạn rất nhiều!', time: '10:18' }
-  ]);
+  const [chatMessages, setChatMessages] = useState(staffInitialChatMessages);
   const [newChatInput, setNewChatInput] = useState('');
 
   // 1. Quản lý Booking / Reservation Handlers

@@ -2,26 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Eye, Coffee, Maximize, User, ArrowRight } from 'lucide-react';
 
-const rooms = [
-  {
-    title: 'Bungalow Gỗ Hướng Suối',
-    description: 'Nằm ẩn mình dưới tán cây cổ thụ bên khe suối nhỏ. Thiết kế mở với vách kính lớn đón sương mai, hiên trà bằng tre mộc mạc và bồn tắm gỗ Hinoki thơm ngát ngoài trời.',
-    size: '65 m²',
-    capacity: '2 Người lớn',
-    amenity: 'Ban công suối',
-    price: '3.200.000đ',
-    image: '/room_luxury.png',
-  },
-  {
-    title: 'Biệt Thự Đồi Trà Thiền Định',
-    description: 'Tọa lạc trên đỉnh đồi lộng gió với tầm nhìn 360 độ ra thung lũng Ngũ Sơn xanh biếc. Tích hợp phòng tập yoga riêng biệt và hồ bơi khoáng nóng mini tràn viền.',
-    size: '120 m²',
-    capacity: '4 Người lớn',
-    amenity: 'Bể bơi riêng',
-    price: '5.800.000đ',
-    image: '/hero_bg.png', // reusing our gorgeous hero image which looks like a hilltop resort with pool
-  }
-];
+import { mainRoomsList as rooms } from '../mockData';
+
 
 export default function Rooms() {
   return (

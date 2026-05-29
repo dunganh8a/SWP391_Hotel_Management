@@ -1,29 +1,8 @@
 import React from 'react';
 import { ChefHat, Heart, Leaf, Star, Calendar } from 'lucide-react';
 
-const menus = [
-  {
-    category: 'Món Khai Vị Thanh Lọc',
-    items: [
-      { name: 'Súp Sen Bách Hợp Chùm Ngây', desc: 'Hạt sen quê tươi ninh nhừ cùng bách hợp và lá chùm ngây bổ dưỡng giúp an thần, ngủ ngon.', price: '95.000đ' },
-      { name: 'Gỏi Ngũ Sắc Rong Nho Organic', desc: 'Rong nho biển tươi giòn phối trộn rau củ hữu cơ rưới sốt chanh leo chua ngọt dịu.', price: '120.000đ' }
-    ]
-  },
-  {
-    category: 'Món Chính Bồi Bổ',
-    items: [
-      { name: 'Cơm Gạo Lứt Hoàng Bào Hạt Sen', desc: 'Cơm gạo lứt đỏ Điện Biên dẻo bùi hấp trong lá sen tươi cùng hạt sen, nấm hương rừng.', price: '165.000đ' },
-      { name: 'Lẩu Nấm Nấm Quý Ngũ Sơn', desc: 'Nước dùng rau củ ninh 12 giờ ngọt thanh cùng các loại nấm tươi hữu cơ quý hiếm.', price: '380.000đ' }
-    ]
-  },
-  {
-    category: 'Nước Uống & Trà Thiền',
-    items: [
-      { name: 'Trà Sâm Sen Mật Ong Rừng', desc: 'Trà sâm Ngũ Sơn hảo hạng hòa quyện mật ong rừng thiên nhiên giải độc, bồi bổ sinh khí.', price: '65.000đ' },
-      { name: 'Nước Cỏ Ngọt Nha Đam Ép Lạnh', desc: 'Nha đam tươi xay nhuyễn cùng lá cỏ ngọt thanh nhiệt cơ thể không chứa đường tinh luyện.', price: '50.000đ' }
-    ]
-  }
-];
+import { restaurantMenus as menus } from '../mockData';
+
 
 export default function Restaurant() {
   return (

@@ -1,82 +1,10 @@
 import React, { useState } from 'react';
 import { Maximize, User, Coffee, ArrowRight, Grid, Home, Users } from 'lucide-react';
 
-const allRooms = [
-  {
-    title: 'Bungalow Gỗ Hướng Suối',
-    category: 'Phòng Đôi/Bungalow',
-    description: 'Nằm ẩn mình dưới tán cây cổ thụ bên khe suối nhỏ. Thiết kế mở với vách kính lớn đón sương mai, hiên trà bằng tre mộc mạc và bồn tắm gỗ Hinoki thơm ngát ngoài trời.',
-    size: '65 m²',
-    capacity: '2 Người lớn',
-    amenity: 'Ban công suối',
-    image: '/room_luxury.png',
-  },
-  {
-    title: 'Bungalow Đá Cuội Bên Rừng',
-    category: 'Phòng Đôi/Bungalow',
-    description: 'Thiết kế vách đá cuội tự nhiên mộc mạc và sang trọng, nép mình bên sườn đồi thông thơ mộng. Sở hữu bồn tắm đá lộ thiên riêng tư và mái kính ngắm sao đêm tuyệt đẹp.',
-    size: '75 m²',
-    capacity: '2 Người lớn',
-    amenity: 'Mái kính ngắm sao',
-    image: '/room_luxury.png',
-  },
-  {
-    title: 'Biệt Thự Đồi Trà Thiền Định',
-    category: 'Phòng Gia Đình/Villa',
-    description: 'Tọa lạc trên đỉnh đồi lộng gió với tầm nhìn 360 độ ra thung lũng Ngũ Sơn xanh biếc. Tích hợp phòng tập yoga riêng biệt và hồ bơi khoáng nóng mini tràn viền.',
-    size: '120 m²',
-    capacity: '4 Người lớn',
-    amenity: 'Bể bơi riêng',
-    image: '/hero_bg.png',
-  },
-  {
-    title: 'Biệt Thự Gia Đình Sen Trắng',
-    category: 'Phòng Gia Đình/Villa',
-    description: 'Nằm biệt lập bên đồi thông yên tĩnh với vườn hoa sen bao quanh. Thiết kế 3 phòng ngủ tiện nghi, phòng khách và bếp nấu ăn đầy đủ dụng cụ, mang lại cảm giác ấm cúng như chính ngôi nhà của bạn.',
-    size: '180 m²',
-    capacity: '6 - 8 Người lớn',
-    amenity: 'Sân vườn & Bếp riêng',
-    image: '/hero_bg.png',
-  },
-  {
-    title: 'Nhà Sàn Cộng Đồng Đông Sơn',
-    category: 'Phòng Cộng Đồng/Tập Thể',
-    description: 'Công trình kiến trúc nhà sàn gỗ truyền thống quy mô lớn, thiết kế mở đón gió mát núi rừng. Trang bị đệm nằm futon organic cao cấp, không gian sinh hoạt chung rộng rãi phù hợp cho các hoạt động bonding, làm việc nhóm hoặc lửa trại ngoài trời của các công ty.',
-    size: '250 m²',
-    capacity: '15 - 25 Khách',
-    amenity: 'Phù hợp Teambuilding',
-    image: '/room_community.png',
-  },
-  {
-    title: 'Biệt Thự Tập Thể Bamboo Retreat',
-    category: 'Phòng Cộng Đồng/Tập Thể',
-    description: 'Thiết kế thuần tre cao cấp bên hồ tự nhiên. Với 2 tầng lầu rộng rãi, tích hợp sảnh sinh hoạt chung lớn, máy chiếu thuyết trình, và sân hiên mở đón gió. Rất thích hợp cho các phòng ban công ty tổ chức workshop kết hợp nghỉ dưỡng.',
-    size: '320 m²',
-    capacity: '20 - 30 Khách',
-    amenity: 'Sảnh workshop & View hồ',
-    image: '/room_community.png',
-  },
-  {
-    title: 'Bungalow Tập Thể Rừng Thông',
-    category: 'Phòng Cộng Đồng/Tập Thể',
-    description: 'Bungalow tập thể hiện đại bằng gỗ thông mộc mạc, bố trí hệ thống giường tầng tối giản thông minh. Rất thích hợp cho nhóm bạn thân hoặc các phòng ban công ty quy mô nhỏ muốn trải nghiệm nghỉ dưỡng tập thể ấm cúng.',
-    size: '110 m²',
-    capacity: '8 - 12 Khách',
-    amenity: 'Giường tầng thông minh',
-    image: '/room_luxury.png',
-  },
-  {
-    title: 'Khu Glamping Dome Tập Thể',
-    category: 'Phòng Cộng Đồng/Tập Thể',
-    description: 'Cụm 3 lều mái vòm geodesic cao cấp thông nhau, nằm xung quanh một khu vực sinh hoạt lửa trại trung tâm riêng tư. Đầy đủ máy lạnh, nệm êm ái và nhà vệ sinh sinh thái biệt lập. Trải nghiệm cắm trại tập thể đẳng cấp cho nhóm teambuilding.',
-    size: '150 m²',
-    capacity: '10 - 16 Khách',
-    amenity: 'Khu lửa trại riêng',
-    image: '/hero_bg.png',
-  }
-];
-
-const categories = ['Tất cả', 'Phòng Đôi/Bungalow', 'Phòng Gia Đình/Villa', 'Phòng Cộng Đồng/Tập Thể'];
+import {
+  roomsPageAllRooms as allRooms,
+  roomsPageCategories as categories
+} from '../mockData';
 
 export default function RoomsPage() {
   const [selectedCategory, setSelectedCategory] = useState('Tất cả');

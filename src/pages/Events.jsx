@@ -1,22 +1,8 @@
 import React from 'react';
 import { Calendar, Users, Target, CheckCircle2, Sliders } from 'lucide-react';
 
-const venues = [
-  {
-    name: 'Đại Sảnh Hội Nghị Ngũ Sơn',
-    description: 'Không gian khán phòng lớn xây dựng từ gỗ tuyết tùng sang trọng với các vách kính lớn view rừng thông mát mẻ. Hệ thống màn hình LED, âm thanh, ánh sáng tiêu chuẩn cao cấp, phù hợp cho các buổi hội nghị quốc tế, lễ ký kết hoặc Gala Dinner.',
-    capacity: 'Từ 80 đến 180 khách',
-    area: '250 m²',
-    highlights: ['Màn hình LED P2.5 siêu nét', 'Bục phát biểu gỗ tuyết tùng', 'Hệ thống âm thanh hội thảo chuyên nghiệp', 'Thiết lập bàn theo yêu cầu (Classroom, Theater...)']
-  },
-  {
-    name: 'Nhà Tre Sinh Thái (Bamboo Pavilion)',
-    description: 'Lấy cảm hứng từ những đóa sen nở rộ, công trình kiến trúc bằng tre độc đáo này mang lại không gian thảo luận mở tràn ngập ánh sáng tự nhiên. Rất thích hợp cho các buổi workshop sáng tạo, khóa tu tập, hoặc họp chiến lược nội bộ của doanh nghiệp.',
-    capacity: 'Từ 20 đến 60 khách',
-    area: '120 m²',
-    highlights: ['Thiết kế tre nứa thoáng đạt tự nhiên', 'Không gian mở đón gió mát', 'Trang bị sẵn thảm thiền và bồ đoàn', 'Tầm nhìn bao quát thung lũng xanh']
-  }
-];
+import { eventsVenues as venues } from '../mockData';
+
 
 export default function Events() {
   return (
