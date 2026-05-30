@@ -1,5 +1,6 @@
 import React from "react";
 import { Calendar, Users, Target, CheckCircle2, Sliders } from "lucide-react";
+import heroBg from "../assets/hero_bg.png";
 
 import { eventsVenues as venues } from "../mockData";
 
@@ -35,7 +36,7 @@ export default function Events() {
                 <div className="w-full lg:w-1/2 rounded-2xl overflow-hidden shadow-sm bg-[#e3e8e3] flex flex-col justify-center items-center p-8 relative min-h-[300px]">
                   <div
                     className="absolute inset-0 bg-cover bg-center opacity-80"
-                    style={{ backgroundImage: "url('/hero_bg.png')" }}
+                    style={{ backgroundImage: `url(${heroBg})` }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-black/10" />
                   <div className="relative z-10 text-white text-center space-y-3">

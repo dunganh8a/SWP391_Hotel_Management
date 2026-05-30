@@ -1,5 +1,6 @@
 import React from "react";
 import { Calendar, Flower2, Armchair, ChevronDown } from "lucide-react";
+import heroBg from "../assets/hero_bg.png";
 
 export default function Hero() {
   return (
@@ -11,7 +12,7 @@ export default function Hero() {
       <div
         className="absolute inset-0 bg-cover bg-center transition-all duration-1000 scale-105"
         style={{
-          backgroundImage: "url('/hero_bg.png')",
+          backgroundImage: `url(${heroBg})`,
         }}
       />
       {/* Dark overlay with green tint */}

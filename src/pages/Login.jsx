@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Mail, Lock, Eye, EyeOff, ArrowLeft, Leaf } from "lucide-react";
+import heroBg from "../assets/hero_bg.png";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -68,7 +69,7 @@ export default function Login() {
   return (
     <div
       className="min-h-screen relative flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 bg-cover bg-center"
-      style={{ backgroundImage: "url('/hero_bg.png')" }}
+      style={{ backgroundImage: `url(${heroBg})` }}
     >
       {/* Dark organic overlay */}
       <div className="absolute inset-0 bg-[#233827]/40 backdrop-blur-sm" />

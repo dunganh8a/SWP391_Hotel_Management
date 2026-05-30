@@ -1,5 +1,6 @@
 import React from "react";
 import { ChefHat, Heart, Leaf, Star, Calendar } from "lucide-react";
+import serviceDining from "../assets/service_dining.png";
 
 import { restaurantMenus as menus } from "../mockData";
 
@@ -100,7 +101,7 @@ export default function Restaurant() {
         <div className="bg-[#233827] rounded-[32px] p-8 text-center text-white relative overflow-hidden shadow-lg">
           <div
             className="absolute inset-0 bg-cover bg-center opacity-10"
-            style={{ backgroundImage: "url('/service_dining.png')" }}
+            style={{ backgroundImage: `url(${serviceDining})` }}
           />
           <div className="relative z-10 max-w-xl mx-auto space-y-6">
             <h3 className="font-serif text-2xl sm:text-3xl font-bold">

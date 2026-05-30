@@ -9,6 +9,7 @@ import {
   Leaf,
   CheckCircle2,
 } from "lucide-react";
+import heroBg from "../assets/hero_bg.png";
 
 export default function ForgotPassword() {
   const [step, setStep] = useState(1);
@@ -100,7 +101,7 @@ export default function ForgotPassword() {
   return (
     <div
       className="min-h-screen relative flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 bg-cover bg-center"
-      style={{ backgroundImage: "url('/hero_bg.png')" }}
+      style={{ backgroundImage: `url(${heroBg})` }}
     >
       {/* Dark organic overlay */}
       <div className="absolute inset-0 bg-[#233827]/40 backdrop-blur-sm" />

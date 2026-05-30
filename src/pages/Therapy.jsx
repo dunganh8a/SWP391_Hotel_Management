@@ -6,6 +6,7 @@ import {
   CheckSquare,
   Calendar,
 } from "lucide-react";
+import serviceTherapy from "../assets/service_therapy.png";
 
 import { therapyTreatments as treatments } from "../mockData";
 
@@ -34,7 +35,7 @@ export default function Therapy() {
             <div className="h-40 w-40 rounded-3xl bg-[#e3e8e3] flex-shrink-0 flex items-center justify-center text-primary-900 overflow-hidden relative">
               <div
                 className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: "url('/service_therapy.png')" }}
+                style={{ backgroundImage: `url(${serviceTherapy})` }}
               />
               <div className="absolute inset-0 bg-black/10" />
             </div>
