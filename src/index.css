@@ -3,18 +3,18 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-50: #f8faf0;
-  --color-primary-100: #f0f4e1;
-  --color-primary-200: #d9f99d;
-  --color-primary-300: #bef264;
-  --color-primary-400: #a3e635;
-  --color-primary-500: #84cc16;
-  --color-primary-600: #65a30d;
-  --color-primary-700: #4d7c0f;
-  --color-primary-800: #3f6212;
-  --color-primary-900: #1a2e05;
-  --color-primary-850: #274507;
-  --color-primary-950: #0f1c02;
+  --color-primary-50: #f7f8f6;
+  --color-primary-100: #ebede8;
+  --color-primary-200: #d4d9ce;
+  --color-primary-300: #bdc5b4;
+  --color-primary-400: #9ca790;
+  --color-primary-500: #7b886f;
+  --color-primary-600: #637057;
+  --color-primary-700: #4d5743;
+  --color-primary-800: #394032;
+  --color-primary-850: #2c3227;
+  --color-primary-900: #1f231b;
+  --color-primary-950: #0f110d;
 
   --color-sage-50: #f4f6f4;
   --color-sage-100: #e3e8e3;
@@ -105,4 +105,13 @@
 .admin-theme, 
 .admin-theme * {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* Fix header navigation wrapping and squeeze issues */
+header nav, header div {
+  flex-shrink: 0 !important;
+}
+
+header nav a, header div a {
+  white-space: nowrap !important;
 }

@@ -11,23 +11,22 @@ export default function Rooms() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
-          <div className="max-w-2xl">
-            <span className="text-xs font-semibold tracking-widest text-primary-900 uppercase bg-primary-200/60 px-3 py-1.5 rounded-full">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20">
+          <div className="max-w-xl">
+            <span className="text-xs font-semibold tracking-[0.25em] text-primary-700 uppercase block mb-3">
               Không gian lưu trú
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-sage-900 mt-4 leading-tight">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-sage-950 mt-4 leading-tight">
               Nơi Trú Ẩn Yên Bình Giữa Đại Ngàn
             </h2>
-            <div className="h-1 w-16 bg-primary-300 mt-6 mb-0 rounded-full" />
           </div>
-          <p className="text-sage-800 font-normal text-base sm:text-lg max-w-md mt-6 md:mt-0 leading-relaxed">
+          <p className="text-sage-700 font-light text-sm sm:text-base max-w-md mt-6 md:mt-0 leading-relaxed">
             Mỗi căn phòng đều được xây dựng từ vật liệu tự nhiên như gỗ tuyết tùng, đá cuội, đất sét nung, đem lại sự ấm cúng và hài hòa phong thủy tuyệt đối.
           </p>
         </div>
 
         {/* Rooms Layout */}
-        <div className="space-y-16">
+        <div className="space-y-20">
           {rooms.map((room, index) => {
             const isEven = index % 2 === 0;
             return (
@@ -36,44 +35,42 @@ export default function Rooms() {
                 className={`flex flex-col lg:flex-row items-stretch gap-8 lg:gap-12 ${isEven ? '' : 'lg:flex-row-reverse'}`}
               >
                 {/* Image Showcase */}
-                <div className="w-full lg:w-1/2 rounded-3xl overflow-hidden shadow-md group relative min-h-[350px] lg:min-h-auto">
+                <div className="w-full lg:w-1/2 overflow-hidden group relative min-h-[380px]">
                   <img 
                     src={room.image} 
                     alt={room.title} 
-                    className="w-full h-full min-h-[350px] object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-300" />
+                  <div className="absolute inset-0 bg-black/5 group-hover:bg-black/10 transition-colors duration-300" />
                 </div>
 
                 {/* Content Box */}
                 <div className="w-full lg:w-1/2 flex flex-col justify-center py-4">
-                  <span className="text-sm font-semibold text-primary-900 flex items-center space-x-1 mb-2">
-                    <span>Nổi bật</span>
-                    <span>•</span>
-                    <span className="bg-primary-100 px-2 py-0.5 rounded text-xs font-semibold">{room.amenity}</span>
+                  <span className="text-[10px] tracking-[0.2em] font-semibold text-primary-600 uppercase block mb-2">
+                    {room.amenity}
                   </span>
                   
-                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-sage-900 mb-4 hover:text-primary-900 transition-colors duration-200">
+                  <h3 className="font-serif text-2xl sm:text-3xl font-normal text-sage-950 mb-4 hover:text-primary-800 transition-colors duration-300">
                     {room.title}
                   </h3>
                   
-                  <p className="text-sage-800 font-normal text-base leading-relaxed mb-6">
+                  <p className="text-sage-700 font-light text-sm sm:text-base leading-relaxed mb-6">
                     {room.description}
                   </p>
 
                   {/* Room Specs */}
                   <div className="grid grid-cols-3 gap-4 border-t border-b border-primary-100 py-4 mb-8">
-                    <div className="flex items-center space-x-2 text-sage-800 text-sm">
-                      <Maximize className="h-4.5 w-4.5 text-primary-800" />
-                      <span className="font-normal">{room.size}</span>
+                    <div className="text-left">
+                      <span className="text-[10px] text-sage-400 block uppercase tracking-wider mb-1">Diện tích</span>
+                      <span className="text-sm font-medium text-sage-800">{room.size}</span>
                     </div>
-                    <div className="flex items-center space-x-2 text-sage-800 text-sm">
-                      <User className="h-4.5 w-4.5 text-primary-800" />
-                      <span className="font-normal">{room.capacity}</span>
+                    <div className="text-left">
+                      <span className="text-[10px] text-sage-400 block uppercase tracking-wider mb-1">Sức chứa</span>
+                      <span className="text-sm font-medium text-sage-800">{room.capacity}</span>
                     </div>
-                    <div className="flex items-center space-x-2 text-sage-800 text-sm">
-                      <Coffee className="h-4.5 w-4.5 text-primary-800" />
-                      <span className="font-normal">Bao gồm ăn sáng</span>
+                    <div className="text-left">
+                      <span className="text-[10px] text-sage-400 block uppercase tracking-wider mb-1">Dịch vụ</span>
+                      <span className="text-sm font-medium text-sage-800">Ăn sáng bao gồm</span>
                     </div>
                   </div>
 
@@ -85,7 +82,7 @@ export default function Rooms() {
                     </div>
                     <a
                       href="#booking"
-                      className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-full text-sm font-semibold bg-primary-900 text-white hover:bg-primary-800 transition-all duration-300 shadow-md hover:shadow-primary-900/10 hover:scale-105"
+                      className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 rounded-none text-xs font-semibold tracking-widest bg-primary-800 text-white hover:bg-primary-900 transition-all duration-300 uppercase cursor-pointer"
                     >
                       Liên hệ báo giá
                     </a>
@@ -97,13 +94,12 @@ export default function Rooms() {
         </div>
 
         {/* View All Rooms Button */}
-        <div className="mt-16 text-center">
+        <div className="mt-20 text-center">
           <Link
             to="/phong-o"
-            className="inline-flex items-center space-x-2 px-8 py-4 rounded-full text-base font-bold bg-primary-200 text-sage-950 hover:bg-primary-300 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-105"
+            className="inline-flex items-center justify-center px-10 py-4 rounded-none text-xs font-semibold tracking-widest border border-sage-900 text-sage-950 hover:bg-sage-900 hover:text-white transition-all duration-300 uppercase"
           >
-            <span>Khám phá tất cả các hạng phòng</span>
-            <ArrowRight className="h-5 w-5" />
+            Khám phá tất cả các hạng phòng
           </Link>
         </div>
 
